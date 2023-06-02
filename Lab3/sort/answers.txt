@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: sort1 uses different time to sort the random, reversed and sorted datasets, reflecting the sensitivity of time complexity to the pattern in the datasets. The other two algorithms have constant time complexity.
+
+sort2 uses: Merge sort
+
+How do you know?: The time taken to sort random50000.txt is much lower than the other two algorithms, which has O(n^2).
+
+sort3 uses: Selection sort
+
+How do you know?: The time taken for sort3 to sort sorted50000.txt is significantly longer than the other two. This is because selection sort always has O(n^2), but bubble sort reduces to O(n) in this best case, which is similar to O(n log(n)) of merge sort.

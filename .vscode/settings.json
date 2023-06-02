@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.m": "matlab",
+        "dictionary.h": "c",
+        "cs50.h": "c"
+    },
+    "gitdoc.enabled": true,
+    "workbench.colorTheme": "Default Dark Modern"
+}

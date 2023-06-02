@@ -1,0 +1,11 @@
+*
+!**/
+
+!.vscode/*
+!.devcontainer/*
+
+!Lab*/**
+!PSet*/**
+
+!.gitignore
+!README.*

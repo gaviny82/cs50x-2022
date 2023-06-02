@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+
+<h1>Your Portfolio</h1>
+<div class="container text-center">
+    <table id="portfolio_datagrid" class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th class="text-start">Symbol</th>
+            <th class="text-start">Name</th>
+            <th class="text-end">Shares</th>
+            <th class="text-end">Current Price</th>
+            <th class="text-end">Total Value</th>
+        </tr>
+
+        {% for item in portfolio %}
+        <tr>
+            <th>{{ loop.index }}</th>
+            <td class="text-start">{{ item["symbol"] }}</td>
+            <td class="text-start">{{ item["name"] }}</td>
+            <td class="text-end">{{ item["shares"] }}</td>
+            <td class="text-end">{{ item["price"] }}</td>
+            <td class="text-end">{{ item["total"] }}</td>
+        </tr>
+        {% endfor %}
+        
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <th class="text-end">Total:</th>
+            <th class="text-end">{{ total }}</th>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <th class="text-end">Cash:</th>
+            <th class="text-end">{{ cash }}</th>
+        </tr>
+
+    </table>
+</div>
+
+
+{% endblock %}

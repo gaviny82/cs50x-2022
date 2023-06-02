@@ -1,0 +1,12 @@
+{
+    "name": "CS50 Dev Container",
+    "image": "cs50/ide:latest",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "/bin/bash",
+                "workbench.colorTheme": "Default Dark Modern"
+            }
+        }
+    }
+}

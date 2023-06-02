@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Quote
+{% endblock %}
+
+{% block main %}
+
+<form id="form" onsubmit="return false;">
+    <div class="mb-3">
+        <input type="text" class="form-control mx-auto w-auto" name="symbol" placeholder="Symbol">
+    </div>
+    <div class="mb-3">
+        <button id="submit" class="btn btn-primary mx-auto w-auto" type="submit">Get a quote</button>
+    </div>
+</form>
+
+<div id="quote_content">
+
+</div>
+
+<script>
+    let form = document.querySelector("#form");
+    let content = document.querySelector("#quote_content");
+    document.querySelector("#submit").addEventListener("click", function updateQuote()
+    {
+        let ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function()
+        {
+            if (ajax.readyState == 4 && ajax.status == 200)
+            {
+                content.innerHTML = ajax.responseText;
+            }
+        };
+        ajax.open("POST", "/quote", true);
+        ajax.send(new FormData(form));
+    });
+
+</script>
+
+{% endblock %}

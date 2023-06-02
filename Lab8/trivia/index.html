@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>
+                    What is the approximate ratio of people to sheep in New Zealand?
+                </h3>
+                <h4 id="prompt1"><br></h4>
+                <button class="submit1" type="button">6 people per 1 sheep</button>
+                <button class="submit1" type="button">3 people per 1 sheep</button>
+                <button class="submit1" type="button">1 people per 1 sheep</button>
+                <button class="submit1" type="button">1 person per 3 sheep</button>
+                <button class="submit1" type="button">1 person per 6 sheep</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>
+                    In which country is it illegal to own only one guinea pig,  as a lone guinea pig might get lonely?
+                </h3>
+                <h4 id="prompt2"><br></h4>
+                <form>
+                    <input type="text" placeholder="Answer">
+                    <input class="submit2" type="Submit" value="Check Answer" onsubmit="return false;">
+                </form>
+            </div>
+        </div>
+    </body>
+    <script>
+        let answer1 = document.querySelectorAll("button.submit1");
+        let prompt1 = document.getElementById("prompt1");
+        let prompt2 = document.getElementById("prompt2");
+        let answer2 = document.querySelector("input[type=text]");
+
+        for (let i = 0, len = answer1.length; i < len; i++)
+        {
+            answer1[i].addEventListener("click",
+            function (e)
+            {
+                // Reset buttons
+                for (let i = 0, len = answer1.length; i < len; i++)
+                {
+                    answer1[i].className = "submit1";
+                }
+
+                let btn = e.target;
+                if (btn.innerText == "1 person per 6 sheep")
+                {
+                    btn.className += " correct";
+                    prompt1.innerText = "Correct";
+                    prompt1.className = "correct";
+                }
+                else
+                {
+                    btn.className += " incorrect";
+                    prompt1.innerText = "Incorrect";
+                    prompt1.className = "incorrect";
+                }
+            });
+        }
+
+        document.querySelector(".submit2").addEventListener("click",
+        function (e)
+        {
+            if (answer2.value == "Switzerland")
+            {
+                prompt2.innerText = "Correct";
+                prompt2.className = "correct";
+                answer2.className = "correct";
+            }
+            else
+            {
+                prompt2.innerText = "Incorrect";
+                answer2.className = "incorrect";
+                prompt2.className = "incorrect";
+            }
+
+            e.preventDefault();
+        });
+    </script>
+</html>
